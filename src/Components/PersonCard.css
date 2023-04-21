@@ -1,0 +1,14 @@
+.image {
+    width: 200px;
+    height: 200px;
+}
+
+.card{
+    border-radius: 2px;
+    margin: 15px;
+}
+
+.header{
+    justify-content: center;
+    align-items: center;
+}

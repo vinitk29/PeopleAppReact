@@ -1,5 +1,5 @@
 import React from "react";
-import './index.css'
+import './index.css';
 import MainContainer from "./MainContainer";
 
 const App = (): React.ReactElement => {

@@ -1,9 +1,8 @@
 import React from "react";
-import './index.css'
+import './MainContainer.css'
 import { ResponseUrl } from "../appConfigs";
-import { ICard } from "../Interfaces/ICard";
 import { IPerson } from "../Interfaces/IPerson";
-import Card from "./Card";
+import PersonCard, { IPersonCardProps } from "./PersonCard";
 
 const MainContainer = (): React.ReactElement => {
     const [people,setPeople] = React.useState([]);
@@ -27,7 +26,7 @@ const MainContainer = (): React.ReactElement => {
         <div className="container">
             {
                 people.map((person:IPerson) => {
-                    const cardProps: ICard = {
+                    const cardProps: IPersonCardProps = {
                         id: person.id,
                         name: person.name,
                         email: person.email,
@@ -35,7 +34,7 @@ const MainContainer = (): React.ReactElement => {
                         phone: person.phone,
                     }
                     return (
-                    <Card {...cardProps}/>
+                    <PersonCard {...cardProps}/>
                 )})
             }
         </div>
