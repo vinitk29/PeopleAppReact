@@ -4,7 +4,6 @@ import { ResponseUrl } from "../appConfigs";
 import { ICard } from "../Interfaces/ICard";
 import { IPerson } from "../Interfaces/IPerson";
 import Card from "./Card";
-import { HeartOutlined } from "@ant-design/icons";
 
 const MainContainer = (): React.ReactElement => {
     const [people,setPeople] = React.useState([]);

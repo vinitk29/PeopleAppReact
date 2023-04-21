@@ -1,10 +1,10 @@
 import React from 'react';
 import { ICard } from '../Interfaces/ICard';
-import { Avatar,Card } from 'antd';
+import { Card } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const Entity = (props:ICard) => {
-    const { phone, id, email, name, website } = props;
+    const {  id,  name } = props;
     const { Meta } = Card;
     return (
         <div key={id}>
