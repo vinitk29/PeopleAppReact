@@ -16,7 +16,7 @@ const Description = (props:IDescriptionProps) => {
             <h3>{name}</h3>
             <div className='row'><MailOutlined style={{fontSize: "18px"}}/><p>{email}</p></div>
             <div className='row'><PhoneOutlined style={{fontSize: "18px"}}/><p>{phone}</p></div>
-            <div className='row'><GlobalOutlined style={{fontSize: "18px"}}/><p>{website}</p></div>
+            <div className='row'><GlobalOutlined style={{fontSize: "18px"}}/><p>{`http://${website}`}</p></div>
         </div>
     );
 };
