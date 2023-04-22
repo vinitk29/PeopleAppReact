@@ -17,3 +17,21 @@
 .ant-card-cover {
     margin: 0 !important;
 }
+
+@media screen and (min-width: 200px) {
+    .card-container {
+      width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card-container {
+      width: 33.33%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .card-container {
+      width: 25%;
+    }
+}

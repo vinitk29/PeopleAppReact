@@ -15,12 +15,14 @@ export interface IPersonCardProps {
 }
 
 const PersonCard = (props:IPersonCardProps) => {
-    const {  id,  name, email, website, phone } = props;
+    const userName = props.name;
     const gray = generate('#f5f5f5')[5];
     const red = generate('#ff0000')[5];
 
     const [isLiked, setIsLiked] = React.useState(false);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [personFields, setPersonFields ] = React.useState<IPersonCardProps>(props); 
+    const {  id,  name, email, website, phone } = personFields;
 
     const HeartComponent = isLiked? HeartFilled : HeartOutlined;
 
@@ -32,25 +34,34 @@ const PersonCard = (props:IPersonCardProps) => {
         setIsModalOpen(true);
     };
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
+
+    const updatePersonInfo = (fields:IPersonCardProps) => {
+        setPersonFields(fields);
+    }
+
     const editFormProps = {
         id,
         name,
         email,website,
         phone,
         isModalOpen,
-        setIsModalOpen
+        closeModal,
+        updatePersonInfo
     }
 
     return (
-        <div key={id}>
+        <div className="card-container" key={id}>
             <Card
-                style={{ width: 420, userSelect: "none", border: "1px solid #e8e8e8" }}
+                style={{ userSelect: "none", border: "1px solid #e8e8e8" }}
                 className='card'
                 cover={
                     <div style={{backgroundColor:gray,justifyContent: "center", alignItems: "center", display: "flex"}}>
                         <img
                             alt="example"
-                            src={`https://avatars.dicebear.com/v2/avataaars/${name}.svg?options[mood][]=happy`}
+                            src={`https://avatars.dicebear.com/v2/avataaars/${userName}.svg?options[mood][]=happy`}
                             className='image'
                         />
                     </div>

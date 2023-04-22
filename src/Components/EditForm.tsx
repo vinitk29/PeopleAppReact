@@ -1,6 +1,7 @@
 import React from 'react';
 import './EditForm.css';
 import { Button, Form, Input, Modal } from 'antd';
+import { IPersonCardProps } from './PersonCard';
 
 export interface IEditFormProps {
     email: string; 
@@ -9,16 +10,18 @@ export interface IEditFormProps {
     name: string;
     id: number;
     isModalOpen: boolean;
-    setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    closeModal: () => void;
+    updatePersonInfo: (fields:IPersonCardProps) => void;
 }
 
 const EditForm = (props:IEditFormProps) => {
-    const {  email,  website, phone, name, isModalOpen, setIsModalOpen } = props;
+    const {  email,  website, phone, name, isModalOpen, closeModal, updatePersonInfo } = props;
     
     const [form] = Form.useForm();
-    const onFinish = (values: any) => {
-       setIsModalOpen(false);
+    const onFinish = (values: IPersonCardProps) => {
+       closeModal();
        console.log("Success:", values);
+       updatePersonInfo(values);
     };
       
     const onFinishFailed = (errorInfo: any) => {
@@ -30,17 +33,17 @@ const EditForm = (props:IEditFormProps) => {
     };
     
     const handleCancel = () => {
-        setIsModalOpen(false);
+        closeModal();
     };
 
     return (
         
-        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} >
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
-                style={{ maxWidth: 600 }} 
+                style={{ maxWidth: 600}} 
                 form={form}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
