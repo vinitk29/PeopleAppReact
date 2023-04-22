@@ -67,9 +67,9 @@ const PersonCard = (props:IPersonCardProps) => {
                     </div>
                 }
                 actions={[
-                    <HeartComponent onClick={onHeartClick} style={{fontSize:"20px", color: red}} key="heart" />,
-                    <EditOutlined onClick={showModal} style={{fontSize:"20px"}} key="edit" />,
-                    <DeleteFilled style={{fontSize:"20px"}} key="delete" />,
+                    <HeartComponent onClick={onHeartClick} style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />,
+                    <EditOutlined onClick={showModal} style={{fontSize:"18px",height:"24px"}} key="edit" />,
+                    <DeleteFilled style={{fontSize:"18px",height:"24px"}} key="delete" />,
                 ]}
             >
                 <Description {...{email,website,phone,name}}/>
