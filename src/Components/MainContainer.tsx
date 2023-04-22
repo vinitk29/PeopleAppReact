@@ -23,7 +23,7 @@ const MainContainer = (): React.ReactElement => {
     },[]);
 
     return (
-        <div className="container">
+        <div className="main-container">
             {
                 people.map((person:IPerson) => {
                     const cardProps: IPersonCardProps = {
@@ -34,7 +34,7 @@ const MainContainer = (): React.ReactElement => {
                         phone: person.phone,
                     }
                     return (
-                    <PersonCard {...cardProps}/>
+                    <PersonCard key={person.id} {...cardProps}/>
                 )})
             }
         </div>
