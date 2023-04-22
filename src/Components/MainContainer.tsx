@@ -32,6 +32,7 @@ const MainContainer = (): React.ReactElement => {
                         email: person.email,
                         website: person.website, 
                         phone: person.phone,
+                        username: person.username
                     }
                     return (
                     <PersonCard key={person.id} {...cardProps}/>

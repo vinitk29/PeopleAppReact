@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Modal } from 'antd';
 import './PersonCard.css';
 import { DeleteFilled, EditOutlined, HeartOutlined,HeartFilled } from '@ant-design/icons';
-import Description from './Description';
+import Description, { IDescriptionProps } from './Description';
 import { generate } from '@ant-design/colors';
 import EditForm from './EditForm';
 
@@ -12,17 +12,18 @@ export interface IPersonCardProps {
     email: string; 
     website: string; 
     phone: string; 
+    username: string;
 }
 
 const PersonCard = (props:IPersonCardProps) => {
-    const userName = props.name;
+    const { id, username } = props;
     const gray = generate('#f5f5f5')[5];
     const red = generate('#ff0000')[5];
 
     const [isLiked, setIsLiked] = React.useState(false);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
-    const [personFields, setPersonFields ] = React.useState<IPersonCardProps>(props); 
-    const {  id,  name, email, website, phone } = personFields;
+    const [personFields, setPersonFields ] = React.useState<IDescriptionProps>(props); 
+    const { name, email, website, phone } = personFields;
 
     const HeartComponent = isLiked? HeartFilled : HeartOutlined;
 
@@ -61,7 +62,7 @@ const PersonCard = (props:IPersonCardProps) => {
                     <div style={{backgroundColor:gray,justifyContent: "center", alignItems: "center", display: "flex"}}>
                         <img
                             alt="example"
-                            src={`https://avatars.dicebear.com/v2/avataaars/${userName}.svg?options[mood][]=happy`}
+                            src={`https://avatars.dicebear.com/v2/avataaars/${username}.svg?options[mood][]=happy`}
                             className='image'
                         />
                     </div>
