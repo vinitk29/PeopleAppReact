@@ -1,10 +1,11 @@
 import React from 'react';
-import { Card, Modal } from 'antd';
+import { Card } from 'antd';
 import './PersonCard.css';
 import { DeleteFilled, EditOutlined, HeartOutlined,HeartFilled } from '@ant-design/icons';
 import Description, { IDescriptionProps } from './Description';
 import { generate } from '@ant-design/colors';
 import EditForm from './EditForm';
+import { IPerson } from '../Interfaces/IPerson';
 
 export interface IPersonCardProps {
     id: number;
@@ -13,10 +14,11 @@ export interface IPersonCardProps {
     website: string; 
     phone: string; 
     username: string;
+    onDeleteClick: () => void;
 }
 
 const PersonCard = (props:IPersonCardProps) => {
-    const { id, username } = props;
+    const { id, username, onDeleteClick } = props;
     const gray = generate('#f5f5f5')[5];
     const red = generate('#ff0000')[5];
 
@@ -39,7 +41,7 @@ const PersonCard = (props:IPersonCardProps) => {
         setIsModalOpen(false);
     }
 
-    const updatePersonInfo = (fields:IPersonCardProps) => {
+    const updatePersonInfo = (fields:IPerson) => {
         setPersonFields(fields);
     }
 
@@ -70,7 +72,7 @@ const PersonCard = (props:IPersonCardProps) => {
                 actions={[
                     <HeartComponent onClick={onHeartClick} style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />,
                     <EditOutlined onClick={showModal} style={{fontSize:"18px",height:"24px"}} key="edit" />,
-                    <DeleteFilled style={{fontSize:"18px",height:"24px"}} key="delete" />,
+                    <DeleteFilled onClick={onDeleteClick} style={{fontSize:"18px",height:"24px"}} key="delete" />,
                 ]}
             >
                 <Description {...{email,website,phone,name}}/>

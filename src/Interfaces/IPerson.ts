@@ -5,13 +5,13 @@ export interface IPerson {
     email:string;
     phone:string;
     website:string;
-    address: {
+    address?: {
 	  street:string; 
 	  suite:string; 
 	  city:string;
 	  zipcode: string;
     }
-    company: {
+    company?: {
 	  name:string; 
     }
 }

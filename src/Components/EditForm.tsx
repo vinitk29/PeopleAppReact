@@ -20,7 +20,6 @@ const EditForm = (props:IEditFormProps) => {
     const [form] = Form.useForm();
     const onFinish = (values: IPersonCardProps) => {
        closeModal();
-       console.log("Success:", values);
        updatePersonInfo(values);
     };
       

@@ -3,36 +3,38 @@ import './MainContainer.css'
 import { ResponseUrl } from "../appConfigs";
 import { IPerson } from "../Interfaces/IPerson";
 import PersonCard, { IPersonCardProps } from "./PersonCard";
+import { useAppDispatch, useAppSelector } from "../Store/store";
+import { addPeople, deletePerson } from "../Slices/peopleSlice";
 
 const MainContainer = (): React.ReactElement => {
-    const [people,setPeople] = React.useState([]);
+    const dispatch = useAppDispatch();
 
-    const fetchData =()=>{
+    React.useEffect(()=>{
         fetch(ResponseUrl)
         .then((response) =>{
             return response.json();
-        }).then((data)=>{
-            let res = data;
-            console.log(res);
-            setPeople(res)
+        }).then((data)=>{  
+            dispatch(addPeople({people:data}));
         })
-    }
-
-    React.useEffect(()=>{
-        fetchData();
     },[]);
+
+    const peopleState = useAppSelector(state=>state.people);
 
     return (
         <div className="main-container">
             {
-                people.map((person:IPerson) => {
+                peopleState.people.map((person:IPerson) => {
+                    const onDeleteClick = () => {
+                        dispatch(deletePerson({id:person.id}));
+                    }
                     const cardProps: IPersonCardProps = {
                         id: person.id,
                         name: person.name,
                         email: person.email,
                         website: person.website, 
                         phone: person.phone,
-                        username: person.username
+                        username: person.username,
+                        onDeleteClick
                     }
                     return (
                     <PersonCard key={person.id} {...cardProps}/>
