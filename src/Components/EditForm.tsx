@@ -1,6 +1,6 @@
 import React from 'react';
 import './EditForm.css';
-import { Button, Form, Input, Modal } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import { IPersonCardProps } from './PersonCard';
 
 export interface IEditFormProps {
