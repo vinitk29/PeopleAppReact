@@ -19,11 +19,11 @@ const MainContainer = (): React.ReactElement => {
             dispatch(addPeople({people:data}));
             setIsLoading(false);
         })
-    },[]);
+    },[dispatch]);
     
     const onDeletePerson = React.useCallback((id:number) => {
         dispatch(deletePerson({id}));
-    },[])
+    },[dispatch])
     const peopleState = useAppSelector(state=>state.people);
 
     if(isLoading) {
