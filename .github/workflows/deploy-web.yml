@@ -1,0 +1,16 @@
+# Workflow name
+name: 'Web Deployment'
+
+# Event for the workflow
+on: push
+
+# List of jobs
+jobs:
+  deploy:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm i
+      - run: npm run deploy

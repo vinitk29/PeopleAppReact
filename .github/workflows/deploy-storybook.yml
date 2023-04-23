@@ -1,12 +1,12 @@
 # Workflow name
-name: 'Deployment Pipeline'
+name: 'Storybook Deployment'
 
 # Event for the workflow
 on: push
 
 # List of jobs
 jobs:
-  test:
+  deploy:
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
