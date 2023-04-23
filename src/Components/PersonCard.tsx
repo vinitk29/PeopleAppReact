@@ -37,9 +37,9 @@ const PersonCard = (props:IPersonCardProps) => {
         setIsModalOpen(true);
     };
 
-    const closeModal = () => {
+    const closeModal = React.useCallback(() => {
         setIsModalOpen(false);
-    }
+    },[]);
 
     const onKeyPressHandle = (event: React.KeyboardEvent<{}>,fun: () => void) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -48,9 +48,9 @@ const PersonCard = (props:IPersonCardProps) => {
         }
     }
 
-    const updatePersonInfo = (fields:IPerson) => {
+    const updatePersonInfo = React.useCallback((fields:IPerson) => {
         setPersonFields(fields);
-    }
+    },[]);
 
     const editFormProps = {
         id,

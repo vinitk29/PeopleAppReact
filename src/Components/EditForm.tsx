@@ -83,4 +83,4 @@ const EditForm = (props:IEditFormProps) => {
     );
 };
 
-export default EditForm;
+export default React.memo(EditForm);

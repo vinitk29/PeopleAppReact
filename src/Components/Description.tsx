@@ -21,4 +21,4 @@ const Description = (props:IDescriptionProps) => {
     );
 };
 
-export default Description;
+export default React.memo(Description);
