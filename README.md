@@ -44,7 +44,22 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-### `npm deploy`
+### `npm run deploy`
 
 Runs the build by internally calling the above command and then deploys the final bundle to github-pages site.
+This app is deployed on this site https://vinitk29.github.io/PeopleAppReact/ 
+
+### `npm run storybook`
+
+Opens storybook in developement mode. Serves the storybook to the localhost to test components in isolation and write storybook tests.
+
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
+
+### `npm run deploy-storybook`
+
+Builds the storybook tests and stores the built resources bundles to storybook-static folder and uploads this folder to Chromatic site where this is hosted.
+Open [https://www.chromatic.com/library?appId=64451aca8f36920bc66799ba](https://www.chromatic.com/library?appId=64451aca8f36920bc66799ba) to view, manage, see builds, snapshot changes between builds.
+
+
+
 
