@@ -8,17 +8,30 @@ import { addPeople, deletePerson } from "../Slices/peopleSlice";
 
 const MainContainer = (): React.ReactElement => {
     const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = React.useState(false);
 
     React.useEffect(()=>{
+        setIsLoading(true);
         fetch(ResponseUrl)
         .then((response) =>{
             return response.json();
         }).then((data)=>{  
             dispatch(addPeople({people:data}));
+            setIsLoading(false);
         })
     },[]);
 
     const peopleState = useAppSelector(state=>state.people);
+
+    if(isLoading) {
+        return (
+            <div className="spinner">
+            <div className="bounce1"></div>
+            <div className="bounce2"></div>
+            <div className="bounce3"></div>
+            </div>
+        )
+    }
 
     return (
         <div className="main-container">
