@@ -18,7 +18,10 @@ const MainContainer = (): React.ReactElement => {
         }).then((data)=>{  
             dispatch(addPeople({people:data}));
             setIsLoading(false);
-        })
+        }).catch(error => {
+            setIsLoading(false);
+            console.error('There was an error! ', error);
+        });
     },[dispatch]);
     
     const onDeletePerson = React.useCallback((id:number) => {
