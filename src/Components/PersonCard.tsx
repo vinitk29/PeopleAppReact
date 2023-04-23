@@ -14,11 +14,11 @@ export interface IPersonCardProps {
     website: string; 
     phone: string; 
     username: string;
-    onDeleteClick: () => void;
+    onDeletePerson: (id:number) => void;
 }
 
 const PersonCard = (props:IPersonCardProps) => {
-    const { id, username, onDeleteClick } = props;
+    const { id, username, onDeletePerson } = props;
     const gray = generate('#f5f5f5')[5];
     const red = generate('#ff0000')[5];
 
@@ -41,6 +41,9 @@ const PersonCard = (props:IPersonCardProps) => {
         setIsModalOpen(false);
     },[]);
 
+    const handleOnDelete = () => {
+        onDeletePerson(id);
+    }
     const onKeyPressHandle = (event: React.KeyboardEvent<{}>,fun: () => void) => {
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -99,8 +102,8 @@ const PersonCard = (props:IPersonCardProps) => {
                         className='button-container' 
                         role='button' 
                         tabIndex={0} 
-                        onClick={onDeleteClick} 
-                        onKeyDown={(event)=>onKeyPressHandle(event,onDeleteClick)}
+                        onClick={handleOnDelete} 
+                        onKeyDown={(event)=>onKeyPressHandle(event,handleOnDelete)}
                     >
                         <DeleteFilled style={{fontSize:"18px",height:"24px"}} key="delete" />
                     </div>,
@@ -113,4 +116,4 @@ const PersonCard = (props:IPersonCardProps) => {
     );
 };
 
-export default PersonCard;
+export default React.memo(PersonCard);

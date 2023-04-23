@@ -20,7 +20,10 @@ const MainContainer = (): React.ReactElement => {
             setIsLoading(false);
         })
     },[]);
-
+    
+    const onDeletePerson = React.useCallback((id:number) => {
+        dispatch(deletePerson({id}));
+    },[])
     const peopleState = useAppSelector(state=>state.people);
 
     if(isLoading) {
@@ -37,9 +40,6 @@ const MainContainer = (): React.ReactElement => {
         <div className="main-container">
             {
                 peopleState.people.map((person:IPerson) => {
-                    const onDeleteClick = () => {
-                        dispatch(deletePerson({id:person.id}));
-                    }
                     const cardProps: IPersonCardProps = {
                         id: person.id,
                         name: person.name,
@@ -47,7 +47,7 @@ const MainContainer = (): React.ReactElement => {
                         website: person.website, 
                         phone: person.phone,
                         username: person.username,
-                        onDeleteClick
+                        onDeletePerson
                     }
                     return (
                     <PersonCard key={person.id} {...cardProps}/>
