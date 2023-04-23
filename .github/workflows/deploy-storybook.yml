@@ -1,16 +1,17 @@
-# Workflow name
 name: 'Storybook Deployment'
 
-# Event for the workflow
-on: push
+on: 
+  push:
+    branches: 
+      - main 
 
-# List of jobs
 jobs:
-  deploy:
-    # Operating System
+  deployStorybook:
     runs-on: ubuntu-latest
-    # Job steps
     steps:
       - uses: actions/checkout@v1
       - run: npm i
-      - run: npm run deploy-storybook
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.REPO_TOKEN }}
