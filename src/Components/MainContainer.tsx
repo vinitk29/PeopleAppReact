@@ -1,6 +1,6 @@
 import React from "react";
 import './MainContainer.css'
-import { ResponseUrl } from "../appConfigs";
+import { PeopleResponseUrl } from "../appConfigs";
 import { IPerson } from "../Interfaces/IPerson";
 import PersonCard, { IPersonCardProps } from "./PersonCard";
 import { useAppDispatch, useAppSelector } from "../Store/store";
@@ -12,7 +12,7 @@ const MainContainer = (): React.ReactElement => {
 
     React.useEffect(()=>{
         setIsLoading(true);
-        fetch(ResponseUrl)
+        fetch(PeopleResponseUrl)
         .then((response) =>{
             return response.json();
         }).then((data)=>{  

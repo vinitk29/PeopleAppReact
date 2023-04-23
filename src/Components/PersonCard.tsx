@@ -41,6 +41,13 @@ const PersonCard = (props:IPersonCardProps) => {
         setIsModalOpen(false);
     }
 
+    const onKeyPressHandle = (event: React.KeyboardEvent<{}>,fun: () => void) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            fun();
+        }
+    }
+
     const updatePersonInfo = (fields:IPerson) => {
         setPersonFields(fields);
     }
@@ -70,9 +77,33 @@ const PersonCard = (props:IPersonCardProps) => {
                     </div>
                 }
                 actions={[
-                    <HeartComponent onClick={onHeartClick} style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />,
-                    <EditOutlined onClick={showModal} style={{fontSize:"18px",height:"24px"}} key="edit" />,
-                    <DeleteFilled onClick={onDeleteClick} style={{fontSize:"18px",height:"24px"}} key="delete" />,
+                    <div 
+                        className='button-container' 
+                        role='button'
+                        tabIndex={0} 
+                        onClick={onHeartClick}
+                        onKeyDown={(event)=>onKeyPressHandle(event,onHeartClick)}
+                    >
+                        <HeartComponent style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />
+                    </div>,
+                    <div 
+                        className='button-container' 
+                        role='button' 
+                        tabIndex={0} 
+                        onClick={showModal} 
+                        onKeyDown={(event)=>onKeyPressHandle(event,showModal)}
+                    >
+                        <EditOutlined style={{fontSize:"18px",height:"24px"}} key="edit" />
+                    </div>,
+                    <div 
+                        className='button-container' 
+                        role='button' 
+                        tabIndex={0} 
+                        onClick={onDeleteClick} 
+                        onKeyDown={(event)=>onKeyPressHandle(event,onDeleteClick)}
+                    >
+                        <DeleteFilled style={{fontSize:"18px",height:"24px"}} key="delete" />
+                    </div>,
                 ]}
             >
                 <Description {...{email,website,phone,name}}/>
