@@ -13,4 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm i
+      - run: git config --global user.email "vinitkothawade98@gmail.com"
+      - run: git config --global user.name "Vinit"
       - run: npm run deploy
