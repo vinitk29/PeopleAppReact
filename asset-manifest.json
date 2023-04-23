@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PeopleAppReact/static/css/main.ff6cd7bf.css",
+    "main.js": "/PeopleAppReact/static/js/main.17ae4c7b.js",
+    "index.html": "/PeopleAppReact/index.html",
+    "main.ff6cd7bf.css.map": "/PeopleAppReact/static/css/main.ff6cd7bf.css.map",
+    "main.17ae4c7b.js.map": "/PeopleAppReact/static/js/main.17ae4c7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff6cd7bf.css",
+    "static/js/main.17ae4c7b.js"
+  ]
+}
