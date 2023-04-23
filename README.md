@@ -15,6 +15,7 @@ https://avatars.dicebear.com/v2/avataaars/{{username}}.svg?options[mood][]=happy
 ```
 
 The entire app is designed using the [Ant Design](https://ant.design/) library.
+The app is completely accessible using keyboard as well. Use TAB key to traverse, ENTER/SPACE to simulate click.
 
 ## Available Scripts
 
@@ -48,6 +49,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Runs the build by internally calling the above command and then deploys the final bundle to github-pages site.
 This app is deployed on this site https://vinitk29.github.io/PeopleAppReact/ 
+The new resources are automatically deployed to the above URL after every push to the main branch of this repository.
 
 ### `npm run storybook`
 
