@@ -84,28 +84,25 @@ const PersonCard = (props:IPersonCardProps) => {
                         className='button-container' 
                         role='button'
                         tabIndex={0} 
-                        onClick={onHeartClick}
                         onKeyDown={(event)=>onKeyPressHandle(event,onHeartClick)}
                     >
-                        <HeartComponent style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />
+                        <HeartComponent onClick={onHeartClick} style={{fontSize:"20px", color: red, height:"25.5px"}} key="heart" />
                     </div>,
                     <div 
                         className='button-container' 
                         role='button' 
                         tabIndex={0} 
-                        onClick={showModal} 
                         onKeyDown={(event)=>onKeyPressHandle(event,showModal)}
                     >
-                        <EditOutlined style={{fontSize:"18px",height:"24px"}} key="edit" />
+                        <EditOutlined onClick={showModal}  style={{fontSize:"18px",height:"24px"}} key="edit" />
                     </div>,
                     <div 
                         className='button-container' 
                         role='button' 
                         tabIndex={0} 
-                        onClick={handleOnDelete} 
                         onKeyDown={(event)=>onKeyPressHandle(event,handleOnDelete)}
                     >
-                        <DeleteFilled style={{fontSize:"18px",height:"24px"}} key="delete" />
+                        <DeleteFilled onClick={handleOnDelete} style={{fontSize:"18px",height:"24px"}} key="delete" />
                     </div>,
                 ]}
             >
